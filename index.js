@@ -21,6 +21,18 @@ app.get('/test', (req, res)=>{
   res.status(200).json({"message": "test successful"})
 })
 
+
+const skillsRouter = require('./routers/skillsRoute');
+const projectsRouter = require('./routers/projectsRoute');
+const articlesRouter = require('./routers/articlesRoute');
+const contactRouter = require('./routers/contactRoute');
+
+app.use('/skills', skillsRouter);
+app.use('/contact', contactRouter);
+app.use('/articles', articlesRouter);
+app.use('/projects', projectsRouter);
+
+
 app.listen(PORT, ()=>{
   console.log(`Server running on ${PORT}`)
 })
